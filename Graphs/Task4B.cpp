@@ -25,33 +25,18 @@ public:
     }
     void AddHelper(int Source, int destination)
     {
-        Arr[Source].push_back(destination);//just Drected Graph
+        Arr[Source].push_back(destination);
     }
     void Adja_matrix()
     {
         for (int i = 0; i < V; i++)
         {
-                for (int j = 0; j < V; i++)
-                {
-                    bool found = false;
+                cout<<i<<"->";
                 for (int N : Arr[i])
-                { 
-                    if (N == j)
-                    {
-                        found = true;
-                        break;
-                    }
+                { // used for Extarcting each value
+                    cout<<N<<"->";                    
                 }
-                if (found)
-                {
-                    cout<<" 1 ";
-
-                }
-                else{
-                    cout<<" 0 ";
-                }
-                    
-                }
+        
             cout<<"\n";
         }
     }

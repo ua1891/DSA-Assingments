@@ -26,33 +26,17 @@ public:
     void AddHelper(int Source, int destination)
     {
         Arr[Source].push_back(destination);
-        Arr[destination].push_back(Source);
-
     }
     void Adja_matrix()
     {
         for (int i = 0; i < V; i++)
         {
-            for (int j = 0; j < V; j++)
-            { 
-                bool found = false;
+               
                 for (int N : Arr[i])
-                { 
-                    if (N == j)
-                    {
-                        found = true;
-                        break;
-                    }
+                {    
+                    cout<<"("<<i<<","<<N<<")\n";             
                 }
-                if (found)
-                {
-                    cout<<" 1 ";
-
-                }
-                else{
-                    cout<<" 0 ";
-                }
-            }
+        
             cout<<"\n";
         }
     }
@@ -61,7 +45,7 @@ public:
 int main()
 {
     int Vertex, Edge;
-    cout << "Enter the  Number of vertices ";
+    cout << "Enter the Total Number of vertices ";
     cin >> Vertex;
     cout << "Enter the Total Number of Edges ";
     cin >> Edge;

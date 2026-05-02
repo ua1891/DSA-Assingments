@@ -11,6 +11,12 @@ struct Node{
         right=NULL;
     }
 };
+void Postorder(Node* root);
+void Preorder(Node* root);
+void Inorder(Node* root);   
+void MixTraversal(Node* root);
+
+
 void Preorder(Node* root){
     if(root==NULL){
         return;
@@ -37,7 +43,15 @@ void Inorder(Node* Root){
     cout<<Root->data<<" ";
     Inorder(Root->right);
 }
-
+void MixTraversal(Node* root){
+    if(root==NULL){
+        return;
+    }
+    Preorder(root->left);
+    cout<<root->data<<"  ";
+    Postorder(root->right);
+    
+}
 int main(){
     Node* root=new Node(1);
     root->left=new Node(2);
@@ -51,8 +65,13 @@ Postorder(root);
 cout<<endl;
 cout<<"Result of Pre Order:";
 Preorder(root);
+cout<<endl;
 cout<<"Result of Inorder";
 Inorder(root);
 cout<<endl;
+cout<<"Result of Mix Traversal";
+MixTraversal(root);
+cout<<endl;
+
 return 0;
 }

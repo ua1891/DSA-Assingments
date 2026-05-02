@@ -32,8 +32,10 @@ int main(){
 
     Root->left->left=new BinaryTree(9);
     Root->left->Right=new BinaryTree(8);
+
     Root->Right->left=new BinaryTree(9);
     Root->Right->Right=new BinaryTree(8);
-
+cout<<"The Internal Nodes  of the Binary Tree is "<<CountInternalNodes(Root);
+cout<<endl;
     return 0;
 }

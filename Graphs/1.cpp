@@ -47,7 +47,7 @@ public:
                 if (found)
                 {
                     cout<<" 1 ";
-
+                    
                 }
                 else{
                     cout<<" 0 ";

@@ -24,14 +24,15 @@ BST* insert(BST* root, int value){
     }
     return root;
 }
- int countLeafNodes(BST* root){
-    if(root == NULL){
-        return 0;
+int Height(BST* Root){
+    if (Root==NULL)
+    {
+        return -1;
     }
-    if(root->left == NULL && root->right == NULL){
-        return 1;
-    }
-    return countLeafNodes(root->left) + countLeafNodes(root->right);
+    int Lhieght=Height(Root->left);
+    int Rhieght=Height(Root->right);
+    return max(Lhieght,Rhieght)+1;
+    
 }
 int main(){
     BST* root = NULL;
@@ -42,7 +43,7 @@ int main(){
     root = insert(root, 4);
     root = insert(root, 2);
     root = insert(root, 7);
-    int LeafNodes = countLeafNodes(root);
-    cout<<"Total Leaf Nodes Are "<<LeafNodes<<endl;
-    return 0;
+    int height = Height(root);
+    cout<<"Height of the Binary Search Tree is "<<height<<endl;
+        return 0;
 }

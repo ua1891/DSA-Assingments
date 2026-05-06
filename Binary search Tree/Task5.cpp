@@ -40,9 +40,6 @@ int main(){
     root = insert(root, 2);
     root = insert(root, 7);
     int max = CountMax(root);
-    cout<<"Inorder Traversal: ";
-    PrintValue(root);
-    cout<<endl;
     cout<<"Maximum Value: "<<max<<endl;
     return 0;
 }

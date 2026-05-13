@@ -40,12 +40,20 @@ void Inorder(BST* root){
     cout<<root->data<<" ";
     Inorder(root->right);
 }
-BST* getSuccessor(BST* root){
+BST* inorderrSuccessor(BST* root){
     BST* current=root;
     while(current!=NULL && current->left!=NULL){
         current=current->left;
     }
     return current;
+}
+int  Height(BST* root){
+    if(root==NULL){
+        return 0;
+    }
+    int Lhieght=Height(root->left);
+    int Rhieght=Height(root->right);
+    return max(Lhieght,Rhieght)+1;
 }
 BST *delNode(BST *root, int key)
 {
@@ -55,11 +63,11 @@ BST *delNode(BST *root, int key)
     }
     if (root->data > key)
     {
-        root->right = delNode(root->right, key);
+        root->left = delNode(root->left, key);
     }
     else if (root->data < key)
     {
-        root->left = delNode(root->left, key);
+        root->right = delNode(root->right, key);
     }
     else
     {
@@ -71,9 +79,9 @@ BST *delNode(BST *root, int key)
         {
             return root->left;
         }
-        BST* Succ=getSuccessor(root->left);
+        BST* Succ=inorderrSuccessor(root->right);
         root->data=Succ->data;
-         root->left=delNode(root->left,Succ->data);
+         root->right=delNode(root->right,Succ->data);
 
     }
     return root;
@@ -90,13 +98,15 @@ int main()
     root = insert(root, 4);
     root = insert(root, 2);
     root = insert(root, 7);
+   cout<<"Height of the Tree is  before deleteion is: "<<Height(root)<<endl;
     cout<<"Inorder Traversal before Deletion: \n";
     Inorder(root);
-    cout<<"Enter the Node which you want to delete: \n";
-    int DelNode=0;
-    cin>>DelNode;
-    root=delNode(root,DelNode);
-    cout<<"Inorder Traversal after Deletion: \n";
+    delNode(root, 3);
+    delNode(root, 4);
+    delNode(root, 5);
+    cout<<"\n Inorder Traversal after Deletion: \n";
     Inorder(root);
+    cout<<"Height of the Tree is  after deleteion is: "<<Height(root)<<endl;
+    
     return 0;
 }

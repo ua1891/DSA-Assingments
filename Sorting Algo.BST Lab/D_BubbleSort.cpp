@@ -30,6 +30,19 @@ void OptimizedBubbleSort(int arr[], int n) {
         }
     }
 }
+void LastswapPostion(int arr[], int n){
+     int lastUnsortedIndex = n - 1;
+    while (lastUnsortedIndex > 0) {
+        int lastSwapIndex = 0;
+        for (int j = 0; j < lastUnsortedIndex; j++) {
+            if (arr[j] > arr[j + 1]) {
+                swap(arr[j], arr[j + 1]);
+                lastSwapIndex = j;
+            }
+        }
+        lastUnsortedIndex = lastSwapIndex;
+    }
+}
 int main(){
     int arr[] = {64, 34, 25, 12, 22, 11, 90};
     int n = sizeof(arr) / sizeof(arr[0]);
@@ -44,6 +57,12 @@ int main(){
     OptimizedBubbleSort(arr2, n);
     cout << " After Optimization Sorted array: ";
     PrintArray(arr2, n);
+        int arr3[] = {64, 34, 25, 12, 22, 11, 90};
+    cout << "Original array: ";
+    PrintArray(arr3, n);
+    LastswapPostion(arr3, n);
+    cout << "using Last swap Postion Sorted array: ";
+    PrintArray(arr3, n);
 
     return 0;
 }
